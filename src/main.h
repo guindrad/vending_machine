@@ -2,7 +2,6 @@
  * Copyright 2021 Guilherme Andrade
  *
  * See the included readme for instructions.
- * https://github.com/DeanIsMe/SevSeg
  * 
  */
 
@@ -14,15 +13,15 @@
 #include <Preferences.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
-#include <LiquidCrystal_I2C.h>
+#include <../lib/Display/LiquidCrystal_I2C.h>
 #include <esp_intr_alloc.h>
 
 /* Componente: EIXO */
-#define EIXO_chaveIDC       4   //Sensor chave de início de curso
-#define EIXO_releMotorA     33  //Relé de movimento de avanço do motor
-#define EIXO_releMotorB     2   //Relé de movimento de retorno do motor
-#define EIXO_encoder_A      14  //Polo A do encoder de posicionamento do carro
-#define EIXO_encoder_B      27  //Polo B do encoder de posicionamento do carro
+#define EIXO_chaveIDC           4   //Sensor chave de início de curso
+#define EIXO_releMotorA         33  //Relé de movimento de avanço do motor
+#define EIXO_releMotorB         2   //Relé de movimento de retorno do motor
+#define EIXO_encoder_A          14  //Polo A do encoder de posicionamento do carro
+#define EIXO_encoder_B          27  //Polo B do encoder de posicionamento do carro
 
 /* Componente: CARRO */
 #define CARRO_servomotor        13  //Servomotor que derruba produto. Recomendado: PWM GPIO pins 2,4,12-19,21-23,25-27,32-33 
@@ -48,6 +47,9 @@
 
 #define SYSTEM_longPress1       1000 //Tempo para considerar um click longo de teclado
 #define SYSTEM_longPress2       2000 //Tempo para considerar um click longo de teclado
+#define SYSTEM_longPress3       4000 //Tempo para considerar um click longo de teclado
+#define WIFI_RECONN_TIME        2000 //Tempo para tentar conectar ao WIFI novamente
+#define WIFI_timeoutTime        4000 //Tempo maximo para conexao de cliente com server ESP32
 #define DEBOUNCE_TIME           25
 
 /* Define o PPR (Pulsos Por Rotação), especificados pelo fabricante */
